@@ -1,32 +1,515 @@
-# Prerequisites
-*.d
+#include <iostream>
+#include <stdio.h>
+#include <conio.h>
+#include <string>
+#include<cstring>
+using namespace std;
+class student{
+	public:
+	static void control_panel() 
+       { 
+	        cout<<"\n\n\n\t\t\t\tControl Panel";
+        	cout<<"\n\n 1. Enter Report";  
+	        cout<<"\n 2. Display Report";
+	        cout<<"\n 3. Search Report";
+	        cout<<"\n 4. Update Report";
+	        cout<<"\n 5. Delete Report";
+         	cout<<"\n 6. Exit";
+        	cout<<"\n\n Enter Your Choice : ";
+       }
+    
+		
+};
+class matric{
+	char name[16];
+	char fname[16];
+	int age;
+	char adn[60]; 
+	static int uid;
+	protected:
+	int mroll;
+	int marks[5];
+	float avg;
+	int total;
+	public:
+		matric(){
+			mroll=uid;
+			uid++;
+			strcpy(name,"NULL");
+			strcpy(fname,"NULL");
+			strcpy(adn,"NULL");
+			int age=0;
+			total=0;
+			avg=0;
+			for (int i=0;i<=5;i++){
+				marks[i]=0;
+			}
+		}
+		char* getname(){
+			return name;
+		}
+		int getroll(){
+			return mroll;
+		}
+		void input(){
+			cin.ignore();
+			cout <<"\nEnter Student name: "<<endl;
+			gets(name);
+			cout <<"Enter Fathers Name: "<<endl;
+			gets(fname);
+			cout <<"Enter Student Age: "<<endl;
+			cin >>age;
+			cout <<"\nEnter Marks of Subjects: "<<endl;
+			for (int i=0;i<5;i++){
+				cout <<"Enter Marks of subject "<<i+1<<" : "<<endl;
+				cin >> marks[i];
+			}
+			for (int i=0;i<5;i++){
+				total+=marks[i];
+			}
+			avg=total/5;
+			cout<<"\nEnter Any Additionl Notes:\n";
+			cin.ignore();
+			gets(adn);
+			
+		}
+		void output(){
+			cout <<"\nStudent Name : " <<name<<endl;
+			cout <<"Father Name : " <<fname<<endl;
+			cout <<"Age : "<<age<<endl;
+			cout <<"Roll Number :"<<mroll<<endl;
+			cout <<"\nTotal marks of Student: \n";
+			cout <<total;
+			cout <<"\nStudent Average:\n";
+			cout <<avg;
+			cout <<endl<<endl<<"\nAdditional Note::";
+			cout <<adn<<endl;
+			
+		}
+		void del(){
+			strcpy(name,"NULL");
+			strcpy(fname,"NULL");
+			strcpy(adn,"NULL");
+			int age=0;
+			total=0;
+			avg=0;
+			for (int i=0;i<=5;i++){
+				marks[i]=0;
+			}
+		}
+	
+	
+};
+class inter{
+	char name[16];
+	char fname[16];
+	int age;
+	char adn[60]; 
+	static int iid;
+	protected:
+	int iroll;
+	int marks[5];
+	float avg;
+	int total;
+	public:
+		inter(){
+			iroll=iid;
+			iid++;
+			strcpy(name,"NULL");
+			strcpy(fname,"NULL");
+			strcpy(adn,"NULL");
+			int age=0;
+			total=0;
+			avg=0;
+			for (int i=0;i<=5;i++){
+				marks[i]=0;
+			}
+		}
+		void input(){
+			cin.ignore();
+			cout <<"Enter Student name: "<<endl;
+			gets(name);
+			cout <<"Enter Fathers Name: "<<endl;
+			gets(fname);
+			cout <<"Enter Student Age: "<<endl;
+			cin >>age;
+			cout <<"\nEnter Marks of Subjects: "<<endl;
+			for (int i=0;i<=5;i++){
+				cout <<"Enter Marks of subject "<<i+1<<" : "<<endl;
+				cin >> marks[i];
+			}
+			for (int i=0;i<=5;i++){
+				total+=marks[i];
+			}
+			avg=total/5;
+			cout<<"\nEnter Any Additionl Notes:\n";
+			cin.ignore();
+			gets(adn);
+			
+		}
+		char* getname(){
+			return name;
+		}
+		int getroll(){
+			return iroll;
+		}
+		void output(){
+			cout <<"Student Name : " <<name<<endl;
+			cout <<"Father Name : " <<fname<<endl;
+			cout <<"Age : "<<age<<endl;
+			cout <<"Roll Number :"<<iroll<<endl;
+			cout <<"\nTotal marks of Student: \n";
+			cout <<total;
+			cout <<"\nStudent Average:\n";
+			cout <<avg;
+			cout <<endl<<endl<<"\nAdditional Note::";
+			cout <<adn;
+			
+		}
+		void del(){
+				strcpy(name,"NULL");
+			strcpy(fname,"NULL");
+			strcpy(adn,"NULL");
+			int age=0;
+			total=0;
+			avg=0;
+			for (int i=0;i<=5;i++){
+				marks[i]=0;
+			}
+		}
 
-# Compiled Object files
-*.slo
-*.lo
-*.o
-*.obj
-
-# Precompiled Headers
-*.gch
-*.pch
-
-# Compiled Dynamic libraries
-*.so
-*.dylib
-*.dll
-
-# Fortran module files
-*.mod
-*.smod
-
-# Compiled Static libraries
-*.lai
-*.la
-*.a
-*.lib
-
-# Executables
-*.exe
-*.out
-*.app
+	
+};
+class BS{
+	char name[16];
+	char fname[16];
+	int age;
+	char adn[60];
+	static int bid;
+	int broll;
+	float GPA;
+	int semester;
+	char degree[16];
+	public:
+		BS(){
+			strcpy(name,"NULL");
+			strcpy(fname,"NULL");
+			strcpy(adn,"NULL");
+			age=18;
+			broll=bid;
+			bid++;
+			strcpy(degree,"NULL");
+			GPA=0.00;
+			semester=0;
+		}
+		char* getname(){
+			return name;
+		}
+		int getroll(){
+			return broll;
+		}
+		void input(){
+			cin.ignore();
+			cout <<"Enter Student name: "<<endl;
+			gets(name);
+			cout <<"Enter Fathers Name: "<<endl;
+			gets(fname);
+			cout <<"Enter Student Age: "<<endl;
+			cin >>age;
+			cin.ignore();
+			cout <<"\nEnter Degree Name:";
+			gets(degree);
+			cout <<"\nEnter semester of Student:\n";
+			cin>>semester;
+			cout <<"\nEnter GPA of Student :\n";
+			cin>>GPA;
+		}
+		void output(){
+			cout <<"Enter Student name: "<<endl;
+			gets(name);
+			cout <<"Enter Fathers Name: "<<endl;
+			gets(fname);
+			cout <<"Enter Student Age: "<<endl;
+			cin >>age;
+			cout <<"\nGPA : "<<GPA;
+			cout <<"\nSemester : "<<semester;
+			cout <<"\nDegree Name : "<<degree;
+		}
+		void del(){
+			strcpy(name,"NULL");
+			strcpy(fname,"NULL");
+			strcpy(adn,"NULL");
+			age=18;
+			strcpy(degree,"NULL");
+			GPA=0.00;
+			semester=0;
+		}
+};
+int matric::uid=0;
+int inter::iid=0;
+int BS::bid=0;
+int main()
+{ 
+	system("title STUDENT REPORT MANAGMENT ::: 505 and 587");
+	system ("color 0b");
+	matric m[100];
+	inter s[100];
+	BS b[100];
+	
+	int t;
+	char s_temp[16];
+	char choice;
+	char pass[16];
+	cout <<"=================== LOGIN =================\n\n\n"<<endl;
+	cout <<"Enter Password :: ";
+	gets(pass);
+	if(!strcmp(pass,"abc123")){
+		goto start;
+	}else{
+		system("color 0c");
+		cout <<"\nWRONG PASSWORD !!!! APPLICATION TERMINATED!\n";
+		system("PAUSE");
+		exit(0);
+	}
+	start:
+		system("CLS");
+student::control_panel();
+choice=getche();
+switch(choice){
+	case '1': cout <<"\n1-Matric Level \n2-Inter Level \n3-BS Level.\nEnter Your choice>";
+	 	choice=getche();
+		switch(choice){
+		case '1': for(int i=0;i<=100;i++){
+			if (!strcmp(m[i].getname(),"NULL")){
+			m[i].input();
+			cout <<"\nData Entred Successfully as under.!!\n";
+			m[i].output();
+			system("PAUSE");
+			goto start;	
+			}
+		}
+		cout <<"\nNo more rommes for new reports free some !!\n";
+		system("PAUSE");
+		goto start;
+		case '2': for(int i=0;i<=100;i++){
+			if (!strcmp(s[i].getname(),"NULL")){
+			s[i].input();
+			cout <<"\nData Entred Successfully as under.!!\n";
+			s[i].output();
+			system("PAUSE");
+			goto start;	
+			}
+		}
+		cout <<"\nNo more rommes for new reports free some !!\n";
+		system("PAUSE");
+		goto start;
+		case '3': for(int i=0;i<=100;i++){
+			if (!strcmp(b[i].getname(),"NULL")){
+			b[i].input();
+			cout <<"\nData Entred Successfully as under.!!\n";
+			b[i].output();
+			system("PAUSE");
+			goto start;	
+			}
+		}
+		cout <<"\nNo more rommes for new reports free some !!\n";
+		system("PAUSE");
+		goto start;
+		default: cout <<"\n Invalid Choice !!!... select between (1-3).\n";
+		system("PAUSE");
+		goto start;
+		}
+	case '2':cout <<"\n1-Matric Level \n2-Inter Level \n3-BS Level.\nEnter Your choice>";
+	 	choice=getche();
+		switch(choice){
+		case '1':cout <<"\nEnter roll Number to see report: ";
+			cin >> t;
+			 for(int i=0;i<=100;i++){
+			if (m[i].getroll()==t){
+			m[i].output();
+			system("PAUSE");
+			goto start;	
+			}	
+			}
+			cout <<"\nNo student with this Roll Number!";
+			system("PAUSE");
+			goto start;
+		case '2': cout <<"\nEnter roll Number to see report: ";
+			cin >> t;
+			 for(int i=0;i<=100;i++){
+			if (s[i].getroll()==t){
+			s[i].output();
+			system("PAUSE");
+			goto start;	
+			}
+			
+		}
+		cout <<"\nNo student with this Roll Number!";
+			system("PAUSE");
+			goto start;
+		case '3': cout <<"\nEnter roll Number to see report: ";
+			cin >> t;
+			 for(int i=0;i<=100;i++){
+			if (b[i].getroll()==t){
+			b[i].output();
+			system("PAUSE");
+			goto start;	
+			}
+		
+		}
+			cout <<"\nNo student with this Roll Number!";
+			system("PAUSE");
+			goto start;
+		default: cout <<"\n Invalid Choice !!!... select between (1-3).\n";
+		system("PAUSE");
+		goto start;
+		}
+	case '3': cout <<"\n1-Matric Level \n2-Inter Level \n3-BS Level.\nEnter Your choice>";
+	 	choice=getche();
+		switch(choice){
+		case '1':cout <<"\nEnter Name to Search Report ";
+			gets(s_temp);
+			 for(int i=0;i<=100;i++){
+			if (!strcmp(m[i].getname(),s_temp)){
+			cout << "\nRECORD FOUND!!\n";
+			m[i].output();
+			system("PAUSE");
+			goto start;	
+			}	
+			}
+			cout <<"\nNo student with this Name!";
+			system("PAUSE");
+			goto start;
+		case '2': cout <<"\nEnter Name to Search Report ";
+			gets(s_temp);
+			 for(int i=0;i<=100;i++){
+			if (!strcmp(s[i].getname(),s_temp)){
+			cout << "\nRECORD FOUND!!\n";
+			s[i].output();
+			system("PAUSE");
+			goto start;	
+			}	
+			}
+			cout <<"\nNo student with this Name!";
+			system("PAUSE");
+			goto start;
+		case '3': cout <<"\nEnter Name to Search Report ";
+			gets(s_temp);
+			 for(int i=0;i<=100;i++){
+			if (!strcmp(b[i].getname(),s_temp)){
+			cout << "\nRECORD FOUND!!\n";
+			b[i].output();
+			system("PAUSE");
+			goto start;	
+			}	
+			}
+			cout <<"\nNo student with this Name!";
+			system("PAUSE");
+			goto start;
+		default: cout <<"\n Invalid Choice !!!... select between (1-3).\n";
+		system("PAUSE");
+		goto start;
+		}	
+	case '4': cout <<"\n1-Matric Level \n2-Inter Level \n3-BS Level.\nEnter Your choice>";
+	 	choice=getche();
+		switch(choice){
+		case '1':cout <<"\nEnter roll Number to update report: ";
+			cin >> t;
+			 for(int i=0;i<=100;i++){
+			if (m[i].getroll()==t){
+			m[i].input();
+			cout <<"\nReport Updated Sucessfully!! as under.\n";
+			m[i].output();
+			system("PAUSE");
+			goto start;	
+			}	
+			}
+			cout <<"\nNo student with this Roll Number!";
+			system("PAUSE");
+			goto start;
+		case '2': cout <<"\nEnter roll Number to update report: ";
+			cin >> t;
+			 for(int i=0;i<=100;i++){
+			if (s[i].getroll()==t){
+			s[i].input();
+			cout <<"\nReport Updated Sucessfully!! as under.\n";
+			s[i].output();
+			system("PAUSE");
+			goto start;	
+			}	
+			}
+			cout <<"\nNo student with this Roll Number!";
+			system("PAUSE");
+			goto start;
+		case '3': cout <<"\nEnter roll Number to update report: ";
+			cin >> t;
+			 for(int i=0;i<=100;i++){
+			if (b[i].getroll()==t){
+			b[i].input();
+			cout <<"\nReport Updated Sucessfully!! as under.\n";
+			b[i].output();
+			system("PAUSE");
+			goto start;	
+			}	
+			}
+			cout <<"\nNo student with this Roll Number!";
+			system("PAUSE");
+			goto start;
+		default: cout <<"\n Invalid Choice !!!... select between (1-3).\n";
+		system("PAUSE");
+		goto start;
+		}
+	case '5': cout <<"\n1-Matric Level \n2-Inter Level \n3-BS Level.\nEnter Your choice>";
+	 	choice=getche();
+		switch(choice){
+		case '1':cout <<"\nEnter roll Number to Delete report: ";
+			cin >> t;
+			 for(int i=0;i<=100;i++){
+			if (m[i].getroll()==t){
+			m[i].del();
+			cout <<"\nReport Deleted Sucessfully!!\n";
+			system("PAUSE");
+			goto start;	
+			}	
+			}
+			cout <<"\nNo student with this Roll Number!";
+			system("PAUSE");
+			goto start;
+		case '2': cout <<"\nEnter roll Number to Delete report: ";
+			cin >> t;
+			 for(int i=0;i<=100;i++){
+			if (s[i].getroll()==t){
+			s[i].del();
+			cout <<"\nReport Deleted Sucessfully!!\n";
+			system("PAUSE");
+			goto start;	
+			}	
+			}
+			cout <<"\nNo student with this Roll Number!";
+			system("PAUSE");
+			goto start;
+		case '3': cout <<"\nEnter roll Number to Delete report: ";
+			cin >> t;
+			 for(int i=0;i<=100;i++){
+			if (b[i].getroll()==t){
+			b[i].del();
+			cout <<"\nReport Deleted Sucessfully!!\n";
+			system("PAUSE");
+			goto start;	
+			}	
+			}
+			cout <<"\nNo student with this Roll Number!";
+			system("PAUSE");
+			goto start;
+		default: cout <<"\n Invalid Choice !!!... select between (1-3).\n";
+		system("PAUSE");
+		goto start;
+		}
+	case '6': exit(1);
+	default: cout <<"\n Invalid Choice !!!... select between (1-6).\n";
+		system("PAUSE");
+		goto start;
+		
+}
+	
+}
